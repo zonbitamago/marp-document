@@ -61,3 +61,42 @@ Beyond that(**Dependency injection mechanism**), the Spring Framework provides f
 ---
 ## Dependency Injectionとは
 
+---
+## DependencyInjectionとは
+
+###### DIのない世界
+
+```java
+public class Car {
+
+ public void run(){
+  //前準備
+  Engine engine = new Engine();
+  Gasoline gasoline = new Gasoline();
+  
+  //実際の実施内容
+  this.engine.filled(this.gasoline);
+  this.engine.startUp();
+  ...
+ }
+}
+```
+
+---
+## DependencyInjectionとは
+
+###### DIのない世界
+- 本当に記載したい内容は「実際の実施内容」
+- 実施するために前準備が必要。
+	- 前準備が増えていったらどうなる？？
+		-　関心事(実際の実施内容)以外をたくさん記載する必要がある。
+		→**関心事以外を記載すると、理解不能になりがち。。。**
+        
+
+---
+## DependencyInjectionとは
+
+###### DIのない世界
+- 前準備のクラスがなかったら？？
+	- コンパイルエラーが発生する。
+	→**前準備のクラスが存在しないと、テストすら実施できない。。。**
