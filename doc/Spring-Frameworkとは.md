@@ -166,3 +166,13 @@ public class Car {
 
 ---
 ## AOPとは
+
+---
+## AOPとは
+<br>
+
+- AOP = Aspect Oriented Programming(アスペクト指向プログラミング）
+
+<br>
+
+#### ( ﾟдﾟ)ﾎﾟｶｰﾝ
