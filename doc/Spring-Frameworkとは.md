@@ -142,7 +142,7 @@ public class Car {
 ###### DIのある世界
 - 本当に記載したい内容は「実際の実施内容」
 - 実施するために前準備が必要。
-	- **DIを利用して、関心事(実際の実施内容)以外を記載しなくて済む!**
+	- **DIを利用して、≈(実際の実施内容)以外を記載しなくて済む!**
 
 ---
 ## DependencyInjectionとは
@@ -180,8 +180,28 @@ public class Car {
 ---
 ## AOPとは
 
-- 各処理の前準備はDIで実施する。
-	- 前準備に共通で入ってくるものがありそう？
-		- ログ出力 
-		- DB接続
-			etc...
+- 実際の処理には関心事しか記載したくない。
+	- 但し、実際には関心事以外も記載しなければいけない。。。
+		例えば「ログ出力」
+        - パフォーマンスを計測するために処理の開始、終了でログ出力を行いたい。
+
+---
+## AOPとは
+```java
+public class Car {
+  @Autowired
+  private Parts engine;
+  @Autowired  
+  private Parts gasoline;
+
+ //関心事以外は書きたくない。。。
+ public void run(){
+  System.out.println("start!!");
+  this.engine.filled(this.gasoline);
+  this.engine.startUp();
+  ...
+  
+  System.out.println("end!!");
+ }
+}
+```
