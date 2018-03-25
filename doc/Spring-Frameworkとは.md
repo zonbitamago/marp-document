@@ -172,6 +172,7 @@ public class Car {
 <br>
 
 - AOP = Aspect Oriented Programming(アスペクト指向プログラミング）
+- Aspect = 横断的関心事
 
 <br>
 
