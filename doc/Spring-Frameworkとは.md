@@ -206,3 +206,68 @@ public class Car {
  }
 }
 ```
+
+---
+## AOPとは
+
+- 実際の処理には関心事しか記載したくない。
+	- 但し、実際には関心事以外も記載しなければいけない。。。
+		例えば「ログ出力」
+        - パフォーマンスを計測するために処理の開始、終了でログ出力を行いたい。
+		→**AOPを使って関心事以外は別のメソッドとして切り出す。**
+
+---
+## AOPとは
+```java
+package com.car;
+
+public class Car {
+  @Autowired
+  private Parts engine;
+  @Autowired  
+  private Parts gasoline;
+
+ //関心事以外は別メソッドへ
+ public void run(){
+  this.engine.filled(this.gasoline);
+  this.engine.startUp();
+  ...
+  
+ }
+}
+```
+---
+## AOPとは
+```java
+@Aspect
+public class LogInterceptor {
+ @Before("execution(* com.car..*.*(..))")
+ private void before(JoinPoint jp) {
+  System.out.println("start!!");
+  Object[] args = jp.getArgs();
+  for (Object o : args) {
+   System.out.println("Before:" + o);
+  }
+ }
+ ...
+ 
+}
+
+```
+---
+## AOPとは
+```java
+@Aspect
+public class LogInterceptor {
+ ...
+ @After("execution(* com.car..*.*(..))")
+ private void after(JoinPoint jp) {
+  System.out.println("end!!");
+  Object[] args = jp.getArgs();
+  for (Object o : args) {
+   System.out.println("After:" + o);
+  }
+ }
+}
+
+```
