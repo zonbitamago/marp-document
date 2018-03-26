@@ -35,8 +35,7 @@ Beyond that(**Dependency injection mechanism**), the Spring Framework provides f
 ---
 ## Spring-Frameworkとは
 
-要約すると
-- Spring-Frameworkの中核はDependency Injection
+- Spring-Frameworkの中核はDependency Injection(+Aspect Oriented Programming)
 - Spring MVC等、webフレームワークの機能は周辺機能
 ※周辺機能は以下の通り
   - spring-webmvc: 画面遷移コントローラ
@@ -271,3 +270,53 @@ public class LogInterceptor {
 }
 
 ```
+---
+## AOPとは
+- アノテーション(@Before、@After)で事前処理、事後処理を記載。
+	- 処理を分割し、本処理には関心事のみを記載する。
+
+- 事前処理、事後処理に記載するものの例　
+	- ログ出力、dao事前準備、etc...
+	→ いろいろな処理でも利用する機能が多い。
+    → 横断的に利用する機能が多い。
+
+---
+## AOPとは
+- 以下はSpringの周辺機能
+  - spring-webmvc: 画面遷移コントローラ
+  - spring-jdbc: データアクセス
+  - spring-security: 認証や権限回り
+  - spring-batch: バッチ処理
+  →これらは、DI + AOPが上手く利用されている。
+
+---
+## AOPとは
+<br>
+
+- AOP = Aspect Oriented Programming(アスペクト指向プログラミング）
+- Aspect = 横断的関心事
+
+<br>
+
+#### ( ･`д･´)なるほど！
+
+---
+## まとめ
+
+---
+## まとめ
+- Spring-Frameworkの中核はDependency Injection(+Aspect Oriented Programming)
+- Spring MVC等、webフレームワークの機能は周辺機能
+※周辺機能は以下の通り
+  - spring-webmvc: 画面遷移コントローラ
+  - spring-jdbc: データアクセス
+  - spring-security: 認証や権限回り
+  - spring-batch: バッチ処理
+ etc...
+
+---
+## まとめ
+- DIとAOPを理解すると、おおよそのSpring機能は活用できる。
+ (自分で機能を作成することも可能)
+---
+## Fin
